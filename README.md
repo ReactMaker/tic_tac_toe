@@ -2,6 +2,10 @@
 
 用ReactJS做出井字遊戲
 
+![Imgur](https://i.imgur.com/U2KeMtx.gif)
+
+## [DEMO](https://reactmaker.github.io/tic_tac_toe/#/)
+
 ## 特色
 
 * [react](https://github.com/facebook/react)
@@ -9,6 +13,7 @@
 * [webpack 2](https://github.com/webpack/webpack)
 * [babel stage-0 ](https://github.com/babel/babel)
 * [eslint](http://eslint.org)
+* [reactstrap](https://reactstrap.github.io/)
 
 ## 需求配置
 * node `^4.5.0`
