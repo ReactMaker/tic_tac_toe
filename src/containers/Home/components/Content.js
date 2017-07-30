@@ -18,7 +18,11 @@ export default class Content extends Component {
     const squares = this.state.squares;
     squares[index] = this.state.player;
 
+    // 檢查遊戲是否結束
     const isGameOver = this.judgeWinner(squares);
+
+    // 檢查是否有格子可以選
+    const emptySqaure = squares.find(square => !square);
 
     this.setState({
       squares,
@@ -26,6 +30,11 @@ export default class Content extends Component {
       isGameOver,
       winner: this.state.player,
     });
+
+    // 沒有使用者贏且沒格子可以選，自動重置
+    if (!isGameOver && emptySqaure === undefined) {
+      setTimeout(this.handleReset, 1000);
+    }
   }
 
   handleReset = () => {
@@ -75,15 +84,16 @@ export default class Content extends Component {
       <div className="content">
         {
           isGameOver
-          ? <div className="flex_box">
-            <p className="winner">玩家： {winner} 勝利</p>
-          </div>
-          : <p className="flex_box">目前玩家： {player}</p>
+            ? <div className="flex_box">
+              <p className="winner">玩家： {winner} 勝利</p>
+            </div>
+            : <p className="flex_box">目前玩家： {player}</p>
         }
         <div className="squares">
           {
             squares.map((square, index) => (
               <Button
+                key={index}
                 role="button"
                 className="box"
                 disabled={square !== '' || isGameOver}
