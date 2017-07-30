@@ -1,6 +1,7 @@
 import React from 'react';
 // import package
 import { Router, Route, hashHistory } from 'react-router';
+import 'bootstrap/dist/css/bootstrap.css';
 // import relative path
 import Home from './Home';
 import NotFound from './NotFound';
